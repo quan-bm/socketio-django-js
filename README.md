@@ -13,3 +13,8 @@ python-socketio==5.8.0
 gunicorn -k eventlet server.wsgi:application --reload
 ```
 Reference: https://www.botreetechnologies.com/blog/django-websocket-with-socketio/
+
+# Run the client
+Using VSCode extension: Live Preview. Right click on `index.html` and choose Show Preview.
+
+The client will be running at `http://127.0.0.1:3000`
