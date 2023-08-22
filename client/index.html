@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello world!</h1>
+    <button id="hello">Say hello to the server</button>
+    <script type="module">
+        import { io } from "https://cdn.socket.io/4.5.2/socket.io.esm.min.js";
+        const socket = io("ws://127.0.0.1:8000");
+
+        socket.on("error", (error) => {
+            console.log(error);
+        });
+
+        socket.on("hello-response", (data) => {
+            console.log("message from server:", data);
+            alert(`message from server: ${data}`);
+        });
+
+
+        function sendHello() {
+            socket.emit("hello", "hello server");
+        }
+        document.getElementById("hello").addEventListener("click", sendHello);
+        export default {};
+    </script>
+</body>
+
+</html>
